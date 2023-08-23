@@ -144,13 +144,17 @@ export const useData = () => {
         )
         
         const videoData = videoResults.data
-        setData(videoData.items.map(( item ) => ({
-            title: item.snippet.title,
-            thumbnail: item.snippet.thumbnails.high.url,
-            publishedAt: item.snippet.publishedAt,
-            viewCount: item.statistics.viewCount,
-            channelTitle: item.snippet.channelTitle,
-        })),
+        // concat 메소드를 통해 기존의 데이터 뒤에 새로운 데이터 이어붙이기
+        setData(prevData =>
+          prevData.concat(
+            videoData.items.map(( item ) => ({
+              title: item.snippet.title,
+              thumbnail: item.snippet.thumbnails.high.url,
+              publishedAt: item.snippet.publishedAt,
+              viewCount: item.statistics.viewCount,
+              channelTitle: item.snippet.channelTitle,
+            })),
+          )
         )
         
         // binding
