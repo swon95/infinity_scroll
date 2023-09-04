@@ -75,7 +75,7 @@ const axiosInstance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/', // 주로 서버 URL == host
 })
 
-const API_KEY = 'AIzaSyApZmz9J1Z3ekIfhKKfByc_qvyhomHApMI'
+const API_KEY = 'app_key'
 
 export const useData = () => {
     const [ data, setData ] = useState<TypeListItem[]>([])
